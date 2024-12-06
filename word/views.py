@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .models import*
 from .forms import*
 
@@ -76,8 +81,9 @@ def proyecto_create(request):
        
     else:
         form = FormularioProyecto()
-    formulario= FormularioCategoria()
+    form_categoria = FormularioCategoria()
     return render(request, 'agregar.html', {'form': form })
+
 
 # Listar todos los items
 
@@ -123,5 +129,28 @@ def no_publicar(request, pk):
     proyecto.publicar = False
     proyecto.save()
     return redirect('lista')
+# Agregar categoría
+
+def clean_nueva_categoria(self):
+    nueva_categoria = self.cleaned_data.get('nueva_categoria')
+    if nueva_categoria and Categoria.objects.filter(nombre=nueva_categoria).exists():
+        raise forms.ValidationError('La categoría ya existe.')
+    return nueva_categoria
 
 
+def agregar_categoria(request):
+    if request.method == 'POST':
+        form = FormularioCategoria(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('agregar_categoria')  # Redirigir para evitar reenvío del formulario
+    else:
+        form = FormularioCategoria()
+
+    categorias = Categoria.objects.all()  # Para mostrar todas las categorías existentes
+    return render(request, 'agregar_categoria.html', {'form': form, 'categorias': categorias})
+
+def eliminar_categoria(request, categoria_id):
+    categoria = get_object_or_404(Categoria, id=categoria_id)
+    categoria.delete()
+    return HttpResponseRedirect(reverse('agregar_categoria'))  # Redirige a la lista de categorías
