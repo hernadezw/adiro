@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'social_django',
     'word',
     'widget_tweaks',
+
+ 
 ]
 
 MIDDLEWARE = [

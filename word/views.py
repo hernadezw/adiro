@@ -9,7 +9,15 @@ from django.urls import reverse
 from .models import*
 from .forms import*
 
-
+def donacion(request):
+    if request.method == 'POST':
+        form = DonationForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request, 'donation_success.html')
+    else:
+        form = DonationForm()
+    return render(request, 'donacion.html', {'form': form})
 # Create your views here.
 def index(request):
     # proyecto = Proyecto.objects.filter(publicar=True)
