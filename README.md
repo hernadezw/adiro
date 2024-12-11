@@ -11,8 +11,14 @@ This web app has been developed using the popular Django framework and Bootstrap
 * Remember me – Cookie Option, users don’t have to provide credentials every time they hit the site
 * Forgot Password – Users can easily retrieve their password if they forget it 
 * Admin Panel – admin can CRUD users
-
+### Imagen 1: Página de inicio
 ![ScreenShot](/word/static/assets/img/ref2.jpeg)
+
+### Imagen 2: Página de dashboard
+![ScreenShot](/word/static/assets/img/ref.jpeg)
+
+### Imagen 3: Página de login
+![ScreenShot](/word/static/assets/img/ref3.jpeg)
 
 ## Tutorial
 [Here](https://dev.to/earthcomfy/series/14274) is a tutorial on how to build this project.
