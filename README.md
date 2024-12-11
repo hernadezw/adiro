@@ -1,4 +1,4 @@
-# Django-registration-and-login-system
+# Django-
 This web app has been developed using the popular Django framework and Bootstrap for the frontend. My motivation to build this project is so that I can learn about Django and tighten up my skills. This mini-app can be easily integrated into a bigger system project that needs to have a registration and login system.
 
 ### Basic Features of The App
@@ -12,7 +12,7 @@ This web app has been developed using the popular Django framework and Bootstrap
 * Forgot Password – Users can easily retrieve their password if they forget it 
 * Admin Panel – admin can CRUD users
 
-![ScreenShot](https://user-images.githubusercontent.com/66206865/131695930-648342b0-010b-44b2-a419-15ad54d47869.png)
+![ScreenShot](/word/static/assets/img/ref2.jpeg)
 
 ## Tutorial
 [Here](https://dev.to/earthcomfy/series/14274) is a tutorial on how to build this project.
