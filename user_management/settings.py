@@ -97,12 +97,14 @@ WSGI_APPLICATION = 'user_management.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-
-        # Replace this value with your local database's connection string.
-        default='sqlite:///db.sqlite3',
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'adiro',
+        'USER': 'adiro',
+        'PASSWORD': 'asociacion-2025-Adiro',
+        'HOST': '127.0.0.1',  # Esto es para conexión local
+        'PORT': '5432',       # Puerto predeterminado de PostgreSQL
+    }
 }
 
 
